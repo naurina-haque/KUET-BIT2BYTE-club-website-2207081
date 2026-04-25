@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BIT2BYTE</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js"></script>
+</head>
+<body class="login-page">
+
+  <div class="login-wrapper">
+    <div class="modal">
+
+      <div class="modal-logo"><span>BIT2BYTE</span></div>
+      <h3>Sign in to your account</h3>
+
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" autocomplete="off" />
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" />
+      </div>
+
+      <div class="forgot"><a href="#">Forgot password?</a></div>
+
+      <button class="modal-submit" onclick="handleLogin()">Login</button>
+
+      <div class="success-msg" id="successMsg"></div>
+
+      <div class="divider"><span>or</span></div>
+
+      <div class="modal-footer-text">
+        Don't have an account? <a href="#">Register here</a>
+      </div>
+
+    </div>
+  </div>
+
+
+</body>
+</html>

@@ -1,73 +1,200 @@
-/* Reset default browser spacing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Page body */
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f6f9;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-
-/* Navbar styling */
+/* ── Navbar ── */
 .navbar {
     background-color: #0a3d62;
-    padding: 10px 50px  ;
-    flex-direction: row;
+    padding: 14px 40px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.navbar p {
+.brand {
     color: white;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
-    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
-/* Remove bullet points */
-.navbar ul {
+.nav-center {
     list-style: none;
-    margin-left: 25%;
+    display: flex;
+    gap: 24px;
 }
 
-/* Make menu horizontal */
-.navbar ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-/* Menu links */
-.navbar ul li a {
+.nav-center li a {
     text-decoration: none;
     color: white;
+    font-size: 15px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.nav-center li a:hover {
+    color: #f6b93b;
+}
+
+
+.login-btn {
+    background: #3ea4b6;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.login-btn:hover { background: #71e6e2; }
+.login-btn:active { transform: scale(0.97); background: #089e9a; }
+
+/* ── Hero ── */
+.hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: 64px;
+    color: #0a3d62;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h2 {
+    margin-top: 14px;
+    font-size: 24px;
+    color: #555;
+    font-weight: normal;
+}
+
+.hero p {
+    margin-top: 16px;
+    font-size: 16px;
+    color: #777;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-btns {
+    margin-top: 32px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: #0a3d62;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover { background: #0d4f7e; }
+
+.btn-outline {
+    background: transparent;
+    color: #0a3d62;
+    border: 2px solid #0a3d62;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    background: #0a3d62;
+    color: white;
+}
+
+/* ── Footer ── */
+footer {
+    background-color: #0d0d0d;
+    color: white;
+    padding: 60px 80px 0;
+}
+
+.footer-top {
+    display: flex;
+    gap: 80px;
+    padding-bottom: 48px;
+    align-items: flex-start;
+}
+
+.footer-logo img {
+    width: 120px;
+}
+
+.footer-col h4 {
     font-size: 18px;
     font-weight: bold;
-    transition: 0.3s;
+    color: white;
+    margin-bottom: 20px;
 }
 
-/* Hover effect */
-.navbar ul li a:hover {
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-col ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
     color: #f6b93b;
 }
-.navbar ul li a:active {
-    color: #f6b93b;
-    text-decoration: underline;
+
+.footer-bottom {
+    border-top: 1px solid #2a2a2a;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-size: 14px;
+    color: #aaa;
 }
 
-/* Main title */
-h1 {
-    margin-top: 40px;
-    font-size: 60px;
-    color: #0a3d62;
+.footer-bottom a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.2s;
 }
 
-/* Subtitle */
-h2 {
-    margin-top: 15px;
-    font-size: 30px;
-    color: #555;
+.footer-bottom a:hover {
+    color: white;
+}
+
+.back-to-top {
+    margin-left: auto;
 }

@@ -1,0 +1,163 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* ── Login Card ── */
+.login-wrapper {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.modal {
+    background: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    width: 100%;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
+
+.modal-logo {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.modal-logo span {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0a3d62;
+    letter-spacing: 1px;
+}
+
+.modal h3 {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 24px;
+    font-weight: normal;
+}
+
+/* ── Fields ── */
+.field {
+    margin-bottom: 18px;
+}
+
+.field label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+.field input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #ddd;
+    border-radius: 7px;
+    font-size: 15px;
+    color: #222;
+    outline: none;
+    background: #f9fafc;
+    transition: border-color 0.2s;
+}
+
+.field input:focus {
+    border-color: #0a3d62;
+    background: white;
+}
+
+/* ── Forgot ── */
+.forgot {
+    text-align: right;
+    margin-top: -10px;
+    margin-bottom: 18px;
+}
+
+.forgot a {
+    font-size: 13px;
+    color: #0a3d62;
+    text-decoration: none;
+}
+
+.forgot a:hover { text-decoration: underline; }
+
+/* ── Submit Button ── */
+.modal-submit {
+    width: 100%;
+    background: #0a3d62;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.modal-submit:hover { background: #0d4f7e; }
+.modal-submit:active { transform: scale(0.98); }
+
+/* ── Success Message ── */
+.success-msg {
+    display: none;
+    text-align: center;
+    padding: 14px;
+    background: #eaf7f0;
+    border-radius: 8px;
+    color: #0d6e4a;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/* ── Divider ── */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 18px 0;
+}
+
+.divider span {
+    font-size: 12px;
+    color: #aaa;
+    white-space: nowrap;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+/* ── Footer Text ── */
+.modal-footer-text {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 13px;
+    color: #777;
+}
+
+.modal-footer-text a {
+    color: #0a3d62;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.modal-footer-text a:hover { text-decoration: underline; }
