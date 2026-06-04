@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ── Navbar ── */
+.navbar {
+    background-color: #0a3d62;
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-center {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+
+.nav-center li a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.nav-center li a:hover,
+.nav-center li a.active {
+    color: #f6b93b;
+}
+
+.login-btn {
+    background: #3ea4b6;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.login-btn:hover { background: #71e6e2; }
+.login-btn:active { transform: scale(0.97); background: #089e9a; }
+
+/* ── Events Section ── */
+.events-section {
+    text-align: center;
+    padding: 60px 40px 80px;
+    flex: 1;
+}
+
+.events-section h1 {
+    font-size: 70px;
+    color: #0a3d62;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    /* FIX #8: 'oswald' → 'Oswald' with correct quotes; fallback to sans-serif */
+    font-family: 'Oswald', 'Segoe UI', sans-serif;
+}
+
+.events-intro {
+    font-size: 18px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 48px;
+}
+
+.events-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.event-card {
+    flex: 1 1 300px;
+    max-width: 380px;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(10, 61, 98, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(10, 61, 98, 0.15);
+}
+
+.event-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.event-card:hover .event-image img {
+    transform: scale(1.05);
+}
+
+.event-content {
+    padding: 24px;
+    text-align: left;
+}
+
+.event-content h3 {
+    font-size: 22px;
+    color: #0a3d62;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.event-content p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ── Footer ── */
+footer {
+    background-color: #0d0d0d;
+    color: white;
+    padding: 60px 80px 0;
+}
+
+.footer-top {
+    display: flex;
+    gap: 80px;
+    padding-bottom: 48px;
+    align-items: flex-start;
+}
+
+.footer-logo img {
+    width: 120px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-col ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+    color: #f6b93b;
+}
+
+.footer-bottom {
+    border-top: 1px solid #2a2a2a;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.footer-bottom a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-bottom a:hover {
+    color: white;
+}
+
+.back-to-top {
+    margin-left: auto;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .events-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .event-card {
+        max-width: none;
+        flex: 1 1 280px;
+    }
+
+    .events-section h1 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 640px) {
+    .events-section h1 {
+        font-size: 28px;
+    }
+
+    .events-intro {
+        font-size: 15px;
+    }
+
+    .event-content {
+        padding: 20px;
+    }
+
+    .event-content h3 {
+        font-size: 18px;
+    }
+}

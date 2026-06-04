@@ -14,8 +14,9 @@
             <ul class="nav-center">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="about.html" aria-current="page">About</a></li>
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#values">Values</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#syllabus">Syllabus</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
@@ -46,18 +47,14 @@
             <section class="members-section reveal" aria-label="Our members">
                 <div class="section-header members-header">
                     <br>
+                    <br>
                     <h2>Our Members</h2>
                     <br>
 
                 </div>
 
-                <div class="members-carousel" data-members-carousel>
-                    <button class="members-nav members-nav-prev" type="button" aria-label="Previous members" data-members-prev>
-                        <span aria-hidden="true">‹</span>
-                    </button>
-
-                    <div class="members-viewport">
-                        <div class="members-grid" data-members-track>
+                <div class="members-carousel">
+                    <div class="members-grid">
                             <article class="member-card">
                                 <img class="member-avatar" src="img/WhatsApp Image 2026-06-03 at 1.53.55 PM.jpeg" />
                                 <h3>Naurina Haque</h3>
@@ -129,12 +126,7 @@
                                 <h3>Md Sakibur Rahman</h3>
                                 <p class="member-role">Assistant Organizing Secretary</p>
                             </article>
-                        </div>
                     </div>
-
-                    <button class="members-nav members-nav-next" type="button" aria-label="Next members" data-members-next>
-                        <span aria-hidden="true">›</span>
-                    </button>
                 </div>
             </section>
 
@@ -143,95 +135,175 @@
                     <br>
                     <h2>Topics We Cover</h2>
                     <br>
-
                 </div>
 
-                <div class="topics-grid">
-                    <article class="topic-card">
-                        <div class="topic-icon">
-                            <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D40670%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="C Programming icon" />
-                        </div>
-                        <h3>C Programming</h3>
-                        <p>Foundation of modern programming, known for efficiency and control over hardware.</p>
-                    </article>
+                <!-- Coding Skills - 6 cards -->
+                <div class="topic-category">
+                    <h3 class="category-title">Coding Skills</h3>
+                    <div class="topics-grid topics-grid-6">
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D40670%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="C Programming icon" />
+                            </div>
+                            <h3>C Programming</h3>
+                            <p>Foundation of modern programming, known for efficiency and control over hardware.</p>
+                        </article>
 
-                    <article class="topic-card">
-                        <div class="topic-icon">
-                            <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DFRRACRKRsw2s%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Java icon" />
-                        </div>
-                        <h3>Java</h3>
-                        <p>A versatile language widely used in web, mobile, and enterprise applications.</p>
-                    </article>
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DFRRACRKRsw2s%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Java icon" />
+                            </div>
+                            <h3>Java</h3>
+                            <p>A versatile language widely used in web, mobile, and enterprise applications.</p>
+                        </article>
 
-                    <article class="topic-card">
-                        <div class="topic-icon">
-                            <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DPXTY4q2Sq2lG%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="JavaScript icon" />
-                        </div>
-                        <h3>JavaScript</h3>
-                        <p>The language of the web, enabling interactive and dynamic user experiences.</p>
-                    </article>
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DPXTY4q2Sq2lG%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="JavaScript icon" />
+                            </div>
+                            <h3>JavaScript</h3>
+                            <p>The language of the web, enabling interactive and dynamic user experiences.</p>
+                        </article>
 
-                    <article class="topic-card">
-                        <div class="topic-icon">
-                            <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DD8fI0PGNpq8i%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="OOP icon" />
-                        </div>
-                        <h3>Object-Oriented Programming (OOP)</h3>
-                        <p>A programming paradigm that organizes code using objects and classes for better structure.</p>
-                    </article>
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DD8fI0PGNpq8i%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="OOP icon" />
+                            </div>
+                            <h3>Object-Oriented Programming (OOP)</h3>
+                            <p>A programming paradigm that organizes code using objects and classes for better structure.</p>
+                        </article>
 
-                    <article class="topic-card">
-                        <div class="topic-icon">
-                            <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DAJ0yU3DEYW2j%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="DSA icon" />
-                        </div>
-                        <h3>Data Structures & Algorithms (DSA)</h3>
-                        <p>The core of problem-solving in programming, essential for efficient data handling.</p>
-                    </article>
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DAJ0yU3DEYW2j%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="DSA icon" />
+                            </div>
+                            <h3>Data Structures & Algorithms (DSA)</h3>
+                            <p>The core of problem-solving in programming, essential for efficient data handling.</p>
+                        </article>
 
-                    <article class="topic-card">
-                        <div class="topic-icon">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ25kJZLunlPCLb8ltGlp-Qv3gjfEJpnsKqZg&s" />
-                        </div>
-                        <h3>Python</h3>
-                        <p>A high-level, interpreted language known for its simplicity and readability.</p>
-                    </article>
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ25kJZLunlPCLb8ltGlp-Qv3gjfEJpnsKqZg&s" />
+                            </div>
+                            <h3>Python</h3>
+                            <p>A high-level, interpreted language known for its simplicity and readability.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Core Development Skills - 4 cards -->
+                <div class="topic-category">
+                    <h3 class="category-title">Core Development Skills</h3>
+                    <div class="topics-grid topics-grid-4">
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D40670%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="C Programming icon" />
+                            </div>
+                            <h3>C Programming</h3>
+                            <p>Foundation of modern programming, known for efficiency and control over hardware.</p>
+                        </article>
+
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DFRRACRKRsw2s%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Java icon" />
+                            </div>
+                            <h3>Java</h3>
+                            <p>A versatile language widely used in web, mobile, and enterprise applications.</p>
+                        </article>
+
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DD8fI0PGNpq8i%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="OOP icon" />
+                            </div>
+                            <h3>Object-Oriented Programming (OOP)</h3>
+                            <p>A programming paradigm that organizes code using objects and classes for better structure.</p>
+                        </article>
+
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DAJ0yU3DEYW2j%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="DSA icon" />
+                            </div>
+                            <h3>Data Structures & Algorithms (DSA)</h3>
+                            <p>The core of problem-solving in programming, essential for efficient data handling.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Frontend Development - 3 cards -->
+                <div class="topic-category">
+                    <h3 class="category-title">Frontend Development</h3>
+                    <div class="topics-grid topics-grid-3">
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D3XRl8fSRBNJL%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="HTML5 icon" />
+                            </div>
+                            <h3>HTML5</h3>
+                            <p>The standard markup language for creating web pages and web applications.</p>
+                        </article>
+
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3Ddsz6kVD9h7%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="CSS3 icon" />
+                            </div>
+                            <h3>CSS3</h3>
+                            <p>Style sheet language used for describing the presentation of a document written in HTML.</p>
+                        </article>
+
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DPXTY4q2Sq2lG%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="JavaScript icon" />
+                            </div>
+                            <h3>JavaScript</h3>
+                            <p>The language of the web, enabling interactive and dynamic user experiences.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Mobile App Development - 2 cards -->
+                <div class="topic-category">
+                    <h3 class="category-title">Mobile App Development</h3>
+                    <div class="topics-grid topics-grid-2">
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DFRRACRKRsw2s%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Android icon" />
+                            </div>
+                            <h3>Android Development</h3>
+                            <p>Build native mobile applications for the world's most popular mobile platform.</p>
+                        </article>
+
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DPXTY4q2Sq2lG%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="React Native icon" />
+                            </div>
+                            <h3>Cross-Platform Development</h3>
+                            <p>Create mobile apps that work on both iOS and Android with a single codebase.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Backend Development - 2 cards -->
+                <div class="topic-category">
+                    <h3 class="category-title">Backend Development</h3>
+                    <div class="topics-grid topics-grid-2">
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DFRRACRKRsw2s%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Node.js icon" />
+                            </div>
+                            <h3>Node.js & Express</h3>
+                            <p>Build scalable server-side applications using JavaScript runtime environment.</p>
+                        </article>
+
+                        <article class="topic-card">
+                            <div class="topic-icon">
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D40670%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Database icon" />
+                            </div>
+                            <h3>Database Management</h3>
+                            <p>Design and manage databases for efficient data storage and retrieval.</p>
+                        </article>
+                    </div>
                 </div>
             </section>
 
-            <section class="info-section reveal" id="mission">
-                <div class="section-header">
-                    <p class="eyebrow">Mission</p>
-                    <h2>Learn deeply, build confidently, and share what you know.</h2>
-                </div>
-                <div class="section-body two-col">
-                    <article class="info-card">
-                        <h3>What we do</h3>
-                        <p>
-                            We organize talks, workshops, code sessions, and collaborative activities that help
-                            members turn curiosity into skill.
-                        </p>
-                    </article>
-                    <article class="info-card">
-                        <h3>Why it matters</h3>
-                        <p>
-                            Students need a space where experimentation is encouraged and every project becomes
-                            part of a larger learning journey.
-                        </p>
-                    </article>
-                </div>
-            </section>
-
-            <section class="info-section reveal" id="values">
-                <div class="section-header">
-                    <p class="eyebrow">Values</p>
-                    <h2>The principles that shape Bit2Byte.</h2>
-                </div>
-                <div class="values-grid">
-                    <article class="value-chip">Curiosity</article>
-                    <article class="value-chip">Consistency</article>
-                    <article class="value-chip">Collaboration</article>
-                    <article class="value-chip">Craft</article>
-                </div>
-            </section>
         </main>
 
         <footer>
