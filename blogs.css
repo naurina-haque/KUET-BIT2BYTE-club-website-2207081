@@ -1,0 +1,23 @@
+/* Public blog listing and post styles */
+.hero{background:linear-gradient(90deg,#eef2ff,#e6f7ff);padding:48px 20px;text-align:center}
+.hero h1{font-size:36px;color:#0a3d62;margin-bottom:8px}
+.hero p{color:#475569}
+
+.blog-list.container{padding:30px 16px;max-width:900px;margin:0 auto}
+.post-card{background:white;border-radius:10px;padding:20px;margin-bottom:18px;border:1px solid #e6eef6}
+.post-title{margin:0 0 8px 0}
+.post-title a{color:#0a3d62;text-decoration:none}
+.post-title a:hover{text-decoration:underline}
+.post-meta{font-size:13px;color:#6b7280;margin-bottom:12px}
+.post-excerpt{color:#374151;line-height:1.7;margin-bottom:12px}
+.read-more{display:inline-block;padding:8px 14px;background:#0a3d62;color:white;border-radius:8px;text-decoration:none}
+.read-more:hover{background:#0d4f7e}
+
+.post-view.container{padding:30px 16px;max-width:800px;margin:20px auto}
+.post-full{background:white;padding:28px;border-radius:10px;border:1px solid #e6eef6}
+.post-full .post-content{color:#111827;line-height:1.8;font-size:16px}
+
+@media (max-width:640px){
+    .hero h1{font-size:28px}
+    .post-full{padding:18px}
+}
