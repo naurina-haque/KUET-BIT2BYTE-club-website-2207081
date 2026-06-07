@@ -366,13 +366,13 @@ while ($row = $statsQuery->fetch_assoc()) {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="events.php">
+                    <a href="admin_events.php">
                         <i class="fas fa-calendar-alt"></i>
                         <span>Events</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="blog_list.php">
+                    <a href="admin_blog_list.php">
                         <i class="fas fa-newspaper"></i>
                         <span>Blogs</span>
                     </a>

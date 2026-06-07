@@ -1,7 +1,13 @@
+/* Public Blog Page - White themed content */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -12,7 +18,7 @@ body {
     min-height: 100vh;
 }
 
-/* ── Navbar ── */
+/* Header - same as home page */
 .navbar {
     position: sticky;
     top: 0;
@@ -37,7 +43,7 @@ body {
 .nav-center {
     list-style: none;
     display: flex;
-    gap: 24px;
+    gap: 18px;
 }
 
 .nav-center li a {
@@ -49,7 +55,7 @@ body {
 }
 
 .nav-center li a:hover,
-.nav-center li a.active {
+.nav-center li a[aria-current="page"] {
     color: #f6b93b;
 }
 
@@ -75,113 +81,146 @@ body {
 .login-btn:hover { background: #57abc5; }
 .login-btn:active { transform: scale(0.97); background: #089e9a; }
 
-/* ── Events Section ── */
-.events-section {
-    text-align: center;
-    padding: 60px 40px 80px;
-    flex: 1;
+/* Content - white themed */
+.page-shell {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.events-section h1 {
+.content-wrap {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.blog-section {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
     font-size: 70px;
     color: #0a3d62;
     font-weight: bold;
     letter-spacing: -0.02em;
     margin-bottom: 16px;
-    /* FIX #8: 'oswald' → 'Oswald' with correct quotes; fallback to sans-serif */
     font-family: 'Oswald', 'Segoe UI', sans-serif;
 }
 
-.events-intro {
-    font-size: 18px;
-    color: #666;
-    max-width: 600px;
-    margin: 0 auto 48px;
+.blog-container {
+    display: grid;
+    gap: 24px;
 }
 
-.events-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.event-card {
-    flex: 1 1 300px;
-    max-width: 380px;
+.blog-card {
     background: white;
     border-radius: 14px;
-    overflow: hidden;
+    padding: 28px;
+    border: 1px solid #dce5ee;
     box-shadow: 0 10px 24px rgba(10, 61, 98, 0.08);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.event-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 14px 30px rgba(10, 61, 98, 0.15);
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(10, 61, 98, 0.12);
 }
 
-.event-image {
-    width: 100%;
-    height: 220px;
-    overflow: hidden;
-}
-
-.event-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-
-.event-card:hover .event-image img {
-    transform: scale(1.05);
-}
-
-.event-image-placeholder {
-    width: 100%;
-    height: 220px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.event-image-placeholder i {
-    font-size: 48px;
-    color: white;
-}
-
-.event-content {
-    padding: 24px;
-    text-align: left;
-}
-
-.event-content h3 {
-    font-size: 22px;
+.blog-card h3 {
+    font-size: 1.5rem;
     color: #0a3d62;
-    margin-bottom: 12px;
-    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.event-date,
-.event-location {
-    font-size: 7px;
-
-    margin-bottom: 8px;
-    font-weight: 400;
+.blog-card h3 a {
+    color: #0a3d62;
+    text-decoration: none;
 }
 
-.event-content p {
-    font-size: 14px;
+.blog-card h3 a:hover {
+    text-decoration: underline;
+}
+
+.blog-meta {
+    font-size: 0.9rem;
     color: #666;
-    line-height: 1.6;
-    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 14px;
 }
 
-/* ── Footer ── */
+.blog-excerpt {
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.read-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0a3d62;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.read-more:hover {
+    background: #0d4f7e;
+}
+
+.no-posts {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    background: white;
+    border-radius: 14px;
+    border: 1px solid #dce5ee;
+}
+
+/* Blog post view */
+.blog-post {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.blog-post-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.blog-post-header h1 {
+    font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+    color: #0a3d62;
+    margin-bottom: 10px;
+}
+
+.blog-post-meta {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.blog-post-content {
+    background: white;
+    border-radius: 14px;
+    padding: 30px;
+    border: 1px solid #dce5ee;
+    box-shadow: 0 10px 24px rgba(10, 61, 98, 0.08);
+    line-height: 1.8;
+    color: #1f2937;
+    font-size: 1.05rem;
+}
+
+.blog-post-content p {
+    margin-bottom: 16px;
+}
+
+/* Footer - same as home page */
 footer {
     background: linear-gradient(180deg, #062d49, #104053);
     color: white;
@@ -248,37 +287,54 @@ footer {
     margin-left: auto;
 }
 
-/* ── Responsive ── */
+/* Responsive */
 @media (max-width: 900px) {
-    .events-section {
+    .navbar {
+        padding: 14px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .nav-center {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .footer-top,
+    .footer-bottom {
         padding-left: 20px;
         padding-right: 20px;
-    }
-
-    .event-card {
-        max-width: none;
-        flex: 1 1 280px;
-    }
-
-    .events-section h1 {
-        font-size: 36px;
     }
 }
 
 @media (max-width: 640px) {
-    .events-section h1 {
-        font-size: 28px;
+    .navbar {
+        padding: 12px 16px;
     }
 
-    .events-intro {
-        font-size: 15px;
+    .brand {
+        font-size: 20px;
     }
 
-    .event-content {
+    .nav-center {
+        gap: 12px;
+    }
+
+    .nav-center li a {
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 48px 20px 0;
+    }
+
+    .blog-post-content {
         padding: 20px;
-    }
-
-    .event-content h3 {
-        font-size: 18px;
     }
 }

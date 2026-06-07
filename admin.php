@@ -56,13 +56,13 @@ if ($postsRes) {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="events.php">
+                    <a href="admin_events.php">
                         <i class="fas fa-calendar-alt"></i>
                         <span>Events</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="blog_list.php">
+                    <a href="admin_blog_list.php">
                         <i class="fas fa-newspaper"></i>
                         <span>Blogs</span>
                     </a>
@@ -134,11 +134,11 @@ if ($postsRes) {
                             <i class="fas fa-user-plus"></i>
                             <span>Add Member</span>
                         </a>
-                        <a href="events.php?action=add" class="action-card">
+                        <a href="admin_events.php?action=add" class="action-card">
                             <i class="fas fa-plus-circle"></i>
                             <span>Create Event</span>
                         </a>
-                        <a href="blog_list.php?action=add" class="action-card">
+                        <a href="admin_blog_list.php?action=add" class="action-card">
                             <i class="fas fa-newspaper"></i>
                             <span>Create Blog</span>
                         </a>

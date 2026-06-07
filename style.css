@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +7,8 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f6f9;
+    background: linear-gradient(135deg, #0a3d62 0%, #1a6b8a 35%, #3ea4b6 70%, #71e6e2 100%);
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -14,11 +16,17 @@ body {
 
 /* ── Navbar ── */
 .navbar {
-    background-color: #0a3d62;
+    background: rgba(10, 61, 98, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     padding: 14px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 40;
 }
 
 .brand {
@@ -36,21 +44,21 @@ body {
 
 .nav-center li a {
     text-decoration: none;
-    color: white;
+    color: rgba(255, 255, 255, 0.88);
     font-size: 15px;
     font-weight: bold;
     transition: color 0.2s;
 }
 
-.nav-center li a:hover {
+.nav-center li a:hover,
+.nav-center li a.active {
     color: #f6b93b;
 }
 
-
 .login-btn {
-    background: #3ea4b6;
+    background: rgba(255, 255, 255, 0.15);
     color: white;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.35);
     padding: 10px 24px;
     border-radius: 4px;
     font-size: 14px;
@@ -59,67 +67,77 @@ body {
     letter-spacing: 1.2px;
     text-transform: uppercase;
     transition: background 0.2s, transform 0.1s;
+    backdrop-filter: blur(6px);
 }
 
-.login-btn:hover { background: #71e6e2; }
-.login-btn:active { transform: scale(0.97); background: #089e9a; }
+.login-btn:hover { background: rgba(255, 255, 255, 0.28); }
+.login-btn:active { transform: scale(0.97); }
 
 /* ── Hero ── */
 .hero {
     text-align: center;
-    padding: 80px 20px 60px;
+    padding: 90px 20px 70px;
     flex: 1;
 }
 
+
 .hero h1 {
-    font-size: 64px;
-    color: #0a3d62;
+    font-size: 90px;
+    color: #daf8ff;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: -0.02em;
+    font-family: 'Oswald';
+    margin-bottom: 16px;
+    text-shadow: 0 4px 24px rgba(5, 61, 100, 0.3);
 }
 
 .hero h2 {
     margin-top: 14px;
     font-size: 24px;
-    color: #555;
+    color: rgba(255, 255, 255, 0.85);
     font-weight: normal;
 }
 
 .hero p {
     margin-top: 16px;
     font-size: 16px;
-    color: #777;
+    color: rgba(255, 255, 255, 0.7);
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .hero-btns {
-    margin-top: 32px;
+    margin-top: 36px;
     display: flex;
     gap: 16px;
     justify-content: center;
 }
 
 .btn-primary {
-    background: #0a3d62;
-    color: white;
+    background: #ffffff;
+    color: #0a3d62;
     border: none;
-    padding: 12px 28px;
+    padding: 12px 32px;
     border-radius: 6px;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(10, 61, 98, 0.2);
 }
 
-.btn-primary:hover { background: #0d4f7e; }
+.btn-primary:hover {
+    background: #f0f8ff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(10, 61, 98, 0.28);
+}
 
 .btn-outline {
     background: transparent;
-    color: #0a3d62;
-    border: 2px solid #0a3d62;
-    padding: 12px 28px;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    padding: 12px 32px;
     border-radius: 6px;
     font-size: 15px;
     font-weight: bold;
@@ -128,8 +146,9 @@ body {
 }
 
 .btn-outline:hover {
-    background: #0a3d62;
-    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: white;
+    transform: translateY(-2px);
 }
 
 /* ── Offerings ── */
@@ -140,13 +159,14 @@ body {
 
 .offerings h3 {
     font-size: 32px;
-    color: #0a3d62;
+    color: #ffffff;
     margin-bottom: 10px;
+    text-shadow: 0 2px 12px rgba(10, 61, 98, 0.25);
 }
 
 .offerings-intro {
     font-size: 16px;
-    color: #666;
+    color: rgba(255, 255, 255, 0.75);
     max-width: 720px;
     margin: 0 auto 32px;
 }
@@ -161,35 +181,44 @@ body {
 .offer-card {
     flex: 1 1 220px;
     max-width: 280px;
-    background: white;
-    border: 1px solid #dce5ee;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: 14px;
     padding: 28px 24px;
     text-align: left;
-    box-shadow: 0 10px 24px rgba(10, 61, 98, 0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.25s, box-shadow 0.25s, background 0.25s, border-color 0.25s;
 }
 
 .offer-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 30px rgba(10, 61, 98, 0.12);
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow:
+        0 16px 40px rgba(10, 61, 98, 0.25),
+        0 0 0 1px rgba(113, 230, 226, 0.3),
+        0 0 24px 4px rgba(113, 230, 226, 0.15);
 }
 
 .offer-card h4 {
     font-size: 20px;
-    color: #0a3d62;
+    color: #ffffff;
     margin-bottom: 12px;
 }
 
 .offer-card p {
-    font-size: 15px;
-    color: #666;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.75);
     line-height: 1.6;
 }
 
 /* ── Footer ── */
 footer {
-    background-color: #0d0d0d;
+    background: rgba(8, 20, 30, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
     padding: 60px 80px 0;
 }
@@ -220,7 +249,7 @@ footer {
 }
 
 .footer-col ul li a {
-    color: #ccc;
+    color: rgba(255, 255, 255, 0.65);
     text-decoration: none;
     font-size: 15px;
     transition: color 0.2s;
@@ -231,35 +260,30 @@ footer {
 }
 
 .footer-bottom {
-    border-top: 1px solid #2a2a2a;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 20px 0;
     display: flex;
     align-items: center;
     gap: 32px;
     font-size: 14px;
-    color: #aaa;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .footer-bottom a {
-    color: #aaa;
+    color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
     transition: color 0.2s;
 }
 
-.footer-bottom a:hover {
-    color: white;
-}
+.footer-bottom a:hover { color: white; }
 
-.back-to-top {
-    margin-left: auto;
-}
+.back-to-top { margin-left: auto; }
 
 @media (max-width: 900px) {
     .offerings {
         padding-left: 20px;
         padding-right: 20px;
     }
-
     .offer-card {
         max-width: none;
         flex: 1 1 260px;
@@ -267,15 +291,14 @@ footer {
 }
 
 @media (max-width: 640px) {
-    .offerings h3 {
-        font-size: 26px;
+    .hero h1 { font-size: 58px; }
+    .offerings h3 { font-size: 26px; }
+    .offerings-intro { font-size: 15px; }
+    .offer-card { padding: 22px 20px; }
+    .navbar { padding: 14px 20px; }
+    .footer-top {
+        flex-direction: column;
+        gap: 32px;
     }
-
-    .offerings-intro {
-        font-size: 15px;
-    }
-
-    .offer-card {
-        padding: 22px 20px;
-    }
+    footer { padding: 42px 20px 0; }
 }

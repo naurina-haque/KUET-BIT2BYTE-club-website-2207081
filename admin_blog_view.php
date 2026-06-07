@@ -28,7 +28,7 @@ $stmt->close();
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title><?php echo htmlspecialchars($post['title']); ?> - BIT2BYTE</title>
     <link rel="stylesheet" href="admin.css">
-    <link rel="stylesheet" href="blog_public.css">
+    <link rel="stylesheet" href="admin_blog_public.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>.page-title{color:#f8fafc}.post-content a{color:#6366f1}</style>
 </head>
@@ -42,8 +42,8 @@ $stmt->close();
             <ul class="nav-menu">
                 <li class="nav-item"><a href="admin.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                 <li class="nav-item"><a href="members.php"><i class="fas fa-users"></i><span>Club Members</span></a></li>
-                <li class="nav-item"><a href="events.php"><i class="fas fa-calendar-alt"></i><span>Events</span></a></li>
-                <li class="nav-item active"><a href="blog_list.php"><i class="fas fa-newspaper"></i><span>Blogs</span></a></li>
+                <li class="nav-item"><a href="admin_events.php"><i class="fas fa-calendar-alt"></i><span>Events</span></a></li>
+                <li class="nav-item active"><a href="admin_blog_list.php"><i class="fas fa-newspaper"></i><span>Blogs</span></a></li>
             </ul>
             <div class="sidebar-footer">
                 <?php if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true): ?>
@@ -71,7 +71,7 @@ $stmt->close();
                             <?php echo nl2br(htmlspecialchars($post['content'])); ?>
                         </div>
                     </article>
-                    <p style="margin-top:16px; "><a href="blog_list.php">&larr; Back to posts</a></p>
+                    <p style="margin-top:16px; "><a href="admin_blog_list.php">&larr; Back to posts</a></p>
                 </div>
             </div>
         </main>

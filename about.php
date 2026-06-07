@@ -1,3 +1,15 @@
+<?php
+require_once 'db.php';
+
+// Get all members for public display
+$members = [];
+$result = $conn->query("SELECT name, image, designation FROM members ORDER BY id DESC");
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $members[] = $row;
+    }
+}
+?>
 <!DOCTYPE html>
 <html class="dark" lang="en" style="color-scheme: dark;">
 <head>
@@ -5,19 +17,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bit2Byte | About</title>
     <meta name="description" content="About Bit2Byte, the Software Research and Development Community of KUET.">
-    <link rel="stylesheet" href="about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="about.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body id="top" class="min-h-screen bg-background font-sans antialiased scroll-smooth">
+<body id="top">
     <div class="page-shell">
         <nav class="navbar" aria-label="Primary">
             <span class="brand">BIT2BYTE</span>
             <ul class="nav-center">
                 <li><a href="home.html">Home</a></li>
-                <li><a href="about.html" aria-current="page">About</a></li>
-                <li><a href="#blogs">Blogs</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#syllabus">Syllabus</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="about.php" class="active" aria-current="page">About</a></li>
+                <li><a href="event.php">Event</a></li>
+                <li><a href="blogs_list.php">Blog</a></li>
+                <li><a href="faq.php">FAQ</a></li>
             </ul>
             <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
         </nav>
@@ -39,107 +53,51 @@
                 </div>
 
                 <div class="hero-copy">
-                    <h2 class="club-title">Bit2Byte</h2>
+                    <h1 class="club-title" style=" font-size: 90px; color: #0a3d62; font-weight: bold; letter-spacing: -0.02em; font-family: 'Oswald', 'Segoe UI', sans-serif; margin-bottom: 16px;">Bit2Byte</h1>
                     <p class="club-desc">A software research and development club focused on building a community of skilled developers. We prepare our members to excel in hackathons, work on real-world projects, secure top jobs, and develop essential soft skills.</p>
                 </div>
             </section>
 
             <section class="members-section reveal" aria-label="Our members">
-                <div class="section-header members-header">
-                    <br>
-                    <br>
-                    <h2>Our Members</h2>
-                    <br>
-
-                </div>
+                <h1 style="text-align: center; font-size: 70px; color: #0a3d62; font-weight: bold; letter-spacing: -0.02em; font-family: 'Oswald', 'Segoe UI', sans-serif; margin-bottom: 16px;">Our Members</h1>
+                <p style="font-size: 18px; color: #666; max-width: 600px; margin: 0 auto 48px; text-align: center;">Meet the talented members of BIT2BYTE community</p>
 
                 <div class="members-carousel">
                     <div class="members-grid">
+                        <?php if (empty($members)): ?>
+                        <p style="text-align: center; color: #666; grid-column: 1 / -1; padding: 40px;">No members have been added yet.</p>
+                        <?php else: ?>
+                            <?php foreach ($members as $member): ?>
                             <article class="member-card">
-                                <img class="member-avatar" src="img/WhatsApp Image 2026-06-03 at 1.53.55 PM.jpeg" />
-                                <h3>Naurina Haque</h3>
-                                <p class="member-role">President</p>
+                                <?php if (!empty($member['image']) && file_exists($member['image'])): ?>
+                                    <img class="member-avatar" src="<?php echo htmlspecialchars($member['image']); ?>" alt="<?php echo htmlspecialchars($member['name']); ?>">
+                                <?php else: ?>
+                                    <div class="member-avatar placeholder">
+                                        <?php echo strtoupper(substr($member['name'], 0, 1)); ?>
+                                    </div>
+                                <?php endif; ?>
+                                <h3><?php echo htmlspecialchars($member['name']); ?></h3>
+                                <p class="member-role"><?php echo ucwords(str_replace('_', ' ', $member['designation'])); ?></p>
                             </article>
-
-                            <article class="member-card">
-                                <img class="member-avatar" src="img/485144383_968814645443791_8134624577281310837_n.jpg" alt="Member 02" />
-                                <h3>Md Abu Saeed</h3>
-                                <p class="member-role">Vice President</p>
-                            </article>
-
-                            <article class="member-card">
-                                <img class="member-avatar" src="img/485139308_968814488777140_2047245261409305343_n.jpg" alt="Member 03" />
-                                <h3>Kazi Tasrif</h3>
-                                <p class="member-role">General Secretary</p>
-                            </article>
-
-                            <article class="member-card">
-                                <img class="member-avatar" src="img/485147236_968814315443824_108797586653335727_n.jpg" alt="Member 04" />
-                                <h3>Prova Paul</h3>
-                                <p class="member-role">Assistant General Secretary</p>
-                            </article>
-
-                            <article class="member-card">
-                                <img class="member-avatar" src="img/485803967_968814568777132_621080447887896575_n.jpg" alt="Member 05" />
-                                <h3>Aciful Islam</h3>
-                                <p class="member-role">Joint Secretary</p>
-                            </article>
-
-                            <article class="member-card">
-                                <img class="member-avatar" src="img/486381218_968814482110474_8747262345128150209_n.jpg" alt="Member 06" />
-                                <h3>Abdulla Rahman</h3>
-                                <p class="member-role">Treasurer</p>
-                            </article>
-
-                            <article class="member-card">
-                                <img class="member-avatar" src="img/485769603_968814262110496_537940823622331398_n.jpg" alt="Member 07" />
-                                <h3>Faysal Mahmud</h3>
-                                <p class="member-role">Assistant Treasurer</p>
-                            </article>
-
-                            <article class="member-card">
-                                <img class="member-avatar" src="img/485806085_968814712110451_1662687907511217479_n.jpg" alt="Member 08" />
-                                <h3>Sumaiya Khan</h3>
-                                <p class="member-role">Workshop Manager</p>
-                            </article>
-
-                            <article class="member-card">
-                                <img class="member-avatar" src="img/485139251_968814455443810_8200890458465857182_n.jpg" alt="Member 09" />
-                                <h3>Md Ibne Sina</h3>
-                                <p class="member-role">Workshop Manager</p>
-                            </article>
-
-                            <article class="member-card">
-                                <img class="member-avatar" src="img/485800745_968814355443820_7548709464080985076_n.jpg" alt="Member 10" />
-                                <h3>Asfaq Mahmud</h3>
-                                <p class="member-role">Assistant Workshop Manager</p>
-                            </article>
-
-                            <article class="member-card">
-                                <img class="member-avatar" src="img/486456214_968814258777163_6770034080116360973_n.jpg" alt="Member 11" />
-                                <h3>Sk Azraf Sami</h3>
-                                <p class="member-role">Assistant Organizing Secretary</p>
-                            </article>
-
-                            <article class="member-card">
-                                <img class="member-avatar" src="img/486591782_968814362110486_2723879142965187839_n.jpg" alt="Member 12" />
-                                <h3>Md Sakibur Rahman</h3>
-                                <p class="member-role">Assistant Organizing Secretary</p>
-                            </article>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </section>
 
-            <section class="topics-section reveal" aria-label="Topics we cover">
+            <section class="topics-section" aria-label="Topics we cover">
                 <div class="section-header topics-header">
                     <br>
-                    <h2>Topics We Cover</h2>
+                    <h1 style="text-align: center; font-size: 70px; color: #0a3d62; font-weight: bold; letter-spacing: -0.02em; font-family: 'Oswald', 'Segoe UI', sans-serif; margin-bottom: 16px;">Topics We Cover
+                    </h1>
+        
                     <br>
                 </div>
 
                 <!-- Coding Skills - 6 cards -->
                 <div class="topic-category">
-                    <h3 class="category-title">Coding Skills</h3>
+                    <h2 class="category-title" style="font-size: 30px;">Coding Skills</h2>
+                    <br>
                     <div class="topics-grid topics-grid-6">
                         <article class="topic-card">
                             <div class="topic-icon">
@@ -193,7 +151,8 @@
 
                 <!-- Core Development Skills - 4 cards -->
                 <div class="topic-category">
-                    <h3 class="category-title">Core Development Skills</h3>
+                    <br>
+                    <h3 class="category-title" style="font-size: 30px;">Core Development Skills</h3>
                     <div class="topics-grid topics-grid-4">
                         <article class="topic-card">
                             <div class="topic-icon">
@@ -230,8 +189,10 @@
                 </div>
 
                 <!-- Frontend Development - 3 cards -->
+                 <br>
                 <div class="topic-category">
-                    <h3 class="category-title">Frontend Development</h3>
+                    <h3 class="category-title" style="font-size: 30px;">Frontend Development</h3>
+                    <br>
                     <div class="topics-grid topics-grid-3">
                         <article class="topic-card">
                             <div class="topic-icon">
@@ -261,7 +222,9 @@
 
                 <!-- Mobile App Development - 2 cards -->
                 <div class="topic-category">
-                    <h3 class="category-title">Mobile App Development</h3>
+                    <br>
+                    <h3 class="category-title" style="font-size: 30px;">Mobile App Development</h3>
+                    <br>
                     <div class="topics-grid topics-grid-2">
                         <article class="topic-card">
                             <div class="topic-icon">
@@ -283,7 +246,9 @@
 
                 <!-- Backend Development - 2 cards -->
                 <div class="topic-category">
-                    <h3 class="category-title">Backend Development</h3>
+                    <br>
+                    <h3 class="category-title" style="font-size: 30px;">Backend Development</h3>
+                    <br>
                     <div class="topics-grid topics-grid-2">
                         <article class="topic-card">
                             <div class="topic-icon">
@@ -324,31 +289,27 @@
                     </ul>
                 </div>
 
-                <!-- Support -->
-                <div class="footer-col">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Terms</a></li>
-                    </ul>
-                </div>
-
-                <!-- Social -->
-                <div class="footer-col">
-                    <h4>Social</h4>
-                    <ul>
-                        <li><a href="#">Email</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                    </ul>
-                </div>
+                 <div class="footer-col">
+        <h4>Social</h4>
+        <ul>
+          <li><a href="mailto:bit2bytekuet@gmail.com" target="_blank">Email</a></li>
+          <li><a href="https://www.facebook.com/bittwobyte" target="_blank">Facebook</a></li>
+          <li><a href="https://www.linkedin.com/company/bit2byte-kuet" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="faq.php">FAQ</a></li>
+          <li><a href="terms.php">Terms</a></li>
+        </ul>
+      </div>
 
             </div>
 
             <div class="footer-bottom">
                 <span>© 2025 Bit2Byte</span>
-                <span><a href="#">Terms of Service</a></span>
+                <span><a href="terms.php">Terms of Service</a></span>
                 <a href="#top" class="back-to-top">Back to top ↑</a>
             </div>
         </footer>
@@ -357,3 +318,4 @@
     <script src="about.js"></script>
 </body>
 </html>
+<?php $conn->close(); ?>

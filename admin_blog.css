@@ -84,3 +84,129 @@ article p{color:var(--text-secondary);line-height:1.6}
 @media (max-width:640px){
     .members-grid{ grid-template-columns: 1fr }
 }
+
+/* Public Blog Page Styles */
+.blog-section {
+    display: grid;
+    gap: 18px;
+}
+
+.blog-header {
+    padding: 0 6px;
+    text-align: center;
+}
+
+.blog-header h2 {
+    font-size: clamp(1.55rem, 2.6vw, 2.2rem);
+    line-height: 1.15;
+    max-width: 20ch;
+    margin: 0 auto;
+}
+
+.blog-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(10, 61, 98, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #e6edf6;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(10, 61, 98, 0.15);
+}
+
+.blog-card h3 {
+    font-size: 1.5rem;
+    color: #0a3d62;
+    margin-bottom: 12px;
+}
+
+.blog-card h3 a {
+    color: #0a3d62;
+    text-decoration: none;
+}
+
+.blog-card h3 a:hover {
+    text-decoration: underline;
+}
+
+.blog-meta {
+    font-size: 0.9rem;
+    color: #667085;
+    margin-bottom: 16px;
+}
+
+.blog-excerpt {
+    color: #667085;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.read-more {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #6366f1;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.read-more:hover {
+    background: #4f46e5;
+}
+
+/* Blog Post View Styles */
+.blog-post {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.blog-post-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.blog-post-header h1 {
+    font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+    color: #0a3d62;
+    margin-bottom: 12px;
+}
+
+.blog-post-meta {
+    font-size: 0.95rem;
+    color: #667085;
+}
+
+.blog-post-content {
+    background: white;
+    border-radius: 14px;
+    padding: 30px;
+    border: 1px solid #e6edf6;
+    box-shadow: 0 10px 24px rgba(10, 61, 98, 0.08);
+    line-height: 1.8;
+    color: #1f2937;
+    font-size: 1.05rem;
+}
+
+@media (max-width: 640px) {
+    .blog-post-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .blog-post-content {
+        padding: 20px;
+    }
+}

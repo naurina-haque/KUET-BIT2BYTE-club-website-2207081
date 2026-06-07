@@ -66,8 +66,8 @@ if ($res) {
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Blogs - BIT2BYTE</title>
     <link rel="stylesheet" href="admin.css">
-    <link rel="stylesheet" href="blog_public.css">
-    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="admin_blog_public.css">
+    <link rel="stylesheet" href="admin_blog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>.page-title{color:#f8fafc}.read-more-btn{display:inline-block;padding:6px 12px;background:var(--primary-color);color:#fff;border-radius:4px;text-decoration:none;font-size:13px}</style>
 </head>
@@ -81,8 +81,8 @@ if ($res) {
             <ul class="nav-menu">
                 <li class="nav-item"><a href="admin.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                 <li class="nav-item"><a href="members.php"><i class="fas fa-users"></i><span>Club Members</span></a></li>
-                <li class="nav-item"><a href="events.php"><i class="fas fa-calendar-alt"></i><span>Events</span></a></li>
-                <li class="nav-item active"><a href="blog_list.php"><i class="fas fa-newspaper"></i><span>Blogs</span></a></li>
+                <li class="nav-item"><a href="admin_events.php"><i class="fas fa-calendar-alt"></i><span>Events</span></a></li>
+                <li class="nav-item active"><a href="admin_blog_list.php"><i class="fas fa-newspaper"></i><span>Blogs</span></a></li>
             </ul>
             <div class="sidebar-footer">
                 <?php if ($isAdmin): ?>
@@ -117,14 +117,14 @@ if ($res) {
                                 <div class="post-excerpt"><?php echo nl2br(htmlspecialchars(substr($p['content'], 0, 600))); ?><?php if (strlen($p['content'])>600) echo '...'; ?></div>
                                 <?php if ($isAdmin): ?>
                                     <div class="member-actions" style="justify-content:space-between">
-                                        <a class="read-more-btn" href="blog_view.php?id=<?php echo $p['id']; ?>"><i class="fas fa-eye"></i> Preview</a>
+                                        <a class="read-more-btn" href="admin_blog_view.php?id=<?php echo $p['id']; ?>"><i class="fas fa-eye"></i> Preview</a>
                                         <div>
                                             <button class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
                                             <button class="btn-delete"><i class="fas fa-trash"></i> Delete</button>
                                         </div>
                                     </div>
                                 <?php else: ?>
-                                    <a class="read-more" href="blog_view.php?id=<?php echo $p['id']; ?>">Read more</a>
+                                    <a class="read-more" href="admin_blog_view.php?id=<?php echo $p['id']; ?>">Read more</a>
                                 <?php endif; ?>
                             </article>
                         <?php endforeach; ?>

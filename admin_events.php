@@ -357,13 +357,13 @@ $totalEvents = count($events);
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a href="events.php">
+                    <a href="admin_events.php">
                         <i class="fas fa-calendar-alt"></i>
                         <span>Events</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="blog_list.php">
+                    <a href="admin_blog_list.php">
                         <i class="fas fa-newspaper"></i>
                         <span>Blogs</span>
                     </a>
@@ -396,10 +396,7 @@ $totalEvents = count($events);
                         <h4>Total Events</h4>
                         <div class="number"><?php echo $totalEvents; ?></div>
                     </div>
-                    <div class="stat-box">
-                        <h4>Upcoming Events</h4>
-                        <div class="number">0</div>
-                    </div>
+                    
                 </div>
 
                 <!-- Events Grid -->

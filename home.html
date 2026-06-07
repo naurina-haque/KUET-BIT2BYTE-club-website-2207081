@@ -12,11 +12,10 @@
     <ul class="nav-center">
       <!-- FIX #2: was href="#", now points to actual page; aria-current added -->
       <li><a href="home.html" class="active" aria-current="page">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="event.html">Event</a></li>
-      <li><a href="#syllabus">Syllabus</a></li>
-      <li><a href="blog_list.php">Blog</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="about.php">About</a></li>
+      <li><a href="event.php">Event</a></li>
+      <li><a href="blogs_list.php">Blog</a></li>
+      <li><a href="faq.php">FAQ</a></li>
     </ul>
     <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
   </nav>
@@ -27,8 +26,8 @@
     <p>Empowering students to build, learn, and innovate through technology and collaboration.</p>
     <div class="hero-btns">
       <!-- FIX #9: buttons now navigate instead of doing nothing -->
-      <button class="btn-primary" onclick="window.location.href='event.html'">Explore Events</button>
-      <button class="btn-outline" onclick="window.location.href='about.html'">Learn More</button>
+      <button class="btn-primary" onclick="window.location.href='event.php'">Explore Events</button>
+      <button class="btn-outline" onclick="window.location.href='about.php'">Learn More</button>
     </div>
   </main>
 
@@ -63,32 +62,31 @@
       <div class="footer-col">
         <h4>About Us</h4>
         <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="#">Syllabus</a></li>
-          <li><a href="#">Blogs</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Support</h4>
-        <ul>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">FAQs</a></li>
-          <li><a href="#">Terms</a></li>
+<li><a href="about.php">About</a></li>
+          <li><a href="event.php">Events</a></li>
+          <li><a href="blogs_list.php">Blogs</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Social</h4>
         <ul>
-          <li><a href="#">Email</a></li>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">LinkedIn</a></li>
+          <li><a href="mailto:bit2bytekuet@gmail.com" target="_blank">Email</a></li>
+          <li><a href="https://www.facebook.com/bittwobyte" target="_blank">Facebook</a></li>
+          <li><a href="https://www.linkedin.com/company/bit2byte-kuet" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="faq.php">FAQ</a></li>
+          <li><a href="terms.php">Terms</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2025 Bit2Byte</span>
-      <span><a href="#">Terms of Service</a></span>
-      <a href="#" class="back-to-top">Back to top ↑</a>
+      <span><a href="terms.php">Terms of Service</a></span>
+      <a href="#" class="back-to-top" >Back to top ↑</a>
     </div>
   </footer>
 
