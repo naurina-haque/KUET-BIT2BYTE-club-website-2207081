@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'db.php';
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -36,33 +37,20 @@ $stmt->close();
         <nav class="sidebar">
             <div class="sidebar-header">
                 <span class="brand">BIT2BYTE</span>
-                <span class="admin-badge">Site</span>
+                <span class="admin-badge">Admin</span>
             </div>
             <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="login.html">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span>Admin Login</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="members.php">
-                        <i class="fas fa-users"></i>
-                        <span>Members</span>
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a href="blog_list.php">
-                        <i class="fas fa-newspaper"></i>
-                        <span>Blogs</span>
-                    </a>
-                </li>
+                <li class="nav-item"><a href="admin.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                <li class="nav-item"><a href="members.php"><i class="fas fa-users"></i><span>Club Members</span></a></li>
+                <li class="nav-item"><a href="events.php"><i class="fas fa-calendar-alt"></i><span>Events</span></a></li>
+                <li class="nav-item active"><a href="blog_list.php"><i class="fas fa-newspaper"></i><span>Blogs</span></a></li>
             </ul>
             <div class="sidebar-footer">
-                <a href="login.html" class="logout-btn">
-                    <i class="fas fa-sign-in-alt"></i>
-                    <span>Admin Login</span>
-                </a>
+                <?php if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true): ?>
+                    <a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+                <?php else: ?>
+                    <a href="login.html" class="logout-btn"><i class="fas fa-sign-in-alt"></i><span>Admin Login</span></a>
+                <?php endif; ?>
             </div>
         </nav>
 
@@ -77,13 +65,13 @@ $stmt->close();
             </header>
 
             <div class="content-area">
-                <div class="container post-view">
+                <div class="container post-view" style="padding:20px">
                     <article class="post-full">
                         <div class="post-content">
                             <?php echo nl2br(htmlspecialchars($post['content'])); ?>
                         </div>
                     </article>
-                    <p><a href="blog_list.php">&larr; Back to posts</a></p>
+                    <p style="margin-top:16px; "><a href="blog_list.php">&larr; Back to posts</a></p>
                 </div>
             </div>
         </main>

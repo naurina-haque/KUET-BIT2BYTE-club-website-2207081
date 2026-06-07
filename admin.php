@@ -1,0 +1,188 @@
+<?php
+session_start();
+include 'db.php';
+
+$totalMembers = 0;
+$totalEvents = 0;
+$totalPosts = 0;
+
+$membersRes = $conn->query("SELECT COUNT(*) as count FROM members");
+if ($membersRes) {
+    $row = $membersRes->fetch_assoc();
+    $totalMembers = $row['count'];
+}
+
+$eventsRes = $conn->query("SELECT COUNT(*) as count FROM events");
+if ($eventsRes) {
+    $row = $eventsRes->fetch_assoc();
+    $totalEvents = $row['count'];
+}
+
+$postsRes = $conn->query("SELECT COUNT(*) as count FROM blogs");
+if ($postsRes) {
+    $row = $postsRes->fetch_assoc();
+    $totalPosts = $row['count'];
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - BIT2BYTE</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <span class="brand">BIT2BYTE</span>
+                <span class="admin-badge">Admin</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="admin.php">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="members.php">
+                        <i class="fas fa-users"></i>
+                        <span>Club Members</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="events.php">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Events</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog_list.php">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blogs</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="logout.php" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title">Dashboard</h1>
+                <div class="header-actions">
+                    <div class="admin-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=6366f1&color=fff" alt="Admin Avatar" class="avatar">
+                        <span class="admin-name">Administrator</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-area">
+                <!-- Stats Cards -->
+                <section class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Members</h3>
+                            <p class="stat-number"><?php echo $totalMembers; ?></p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Events Completed</h3>
+                            <p class="stat-number"><?php echo $totalEvents; ?></p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Blog Posts</h3>
+                            <p class="stat-number"><?php echo $totalPosts; ?></p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- Quick Actions -->
+                <section class="quick-actions">
+                    <h2>Quick Actions</h2>
+                    <div class="actions-grid">
+                        <a href="members.php?action=add" class="action-card">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Add Member</span>
+                        </a>
+                        <a href="events.php?action=add" class="action-card">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Create Event</span>
+                        </a>
+                        <a href="blog_list.php?action=add" class="action-card">
+                            <i class="fas fa-newspaper"></i>
+                            <span>Create Blog</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // Active navigation state
+        const navItems = document.querySelectorAll('.nav-item a');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navItems.forEach(nav => nav.parentElement.classList.remove('active'));
+                this.parentElement.classList.add('active');
+                
+                // Update page title
+                const pageName = this.querySelector('span').textContent;
+                document.querySelector('.page-title').textContent = pageName;
+                
+                // Close mobile menu
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -257,8 +257,9 @@ body {
 }
 
 .stat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25);
+    border-color: var(--primary-color);
 }
 
 .stat-icon {
@@ -303,19 +304,6 @@ body {
     font-weight: 700;
     color: var(--text-primary);
     line-height: 1.2;
-}
-
-.stat-change {
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.stat-change.positive {
-    color: var(--success-color);
-}
-
-.stat-change.negative {
-    color: var(--danger-color);
 }
 
 /* Content Grid */

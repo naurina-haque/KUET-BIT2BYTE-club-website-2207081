@@ -167,30 +167,26 @@ while ($row = $statsQuery->fetch_assoc()) {
         }
 
         /* Add Member Button */
-        .add-member-btn {
-            background: #6366f1;
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: background 0.2s, transform 0.2s;
-            margin-bottom: 24px;
-        }
-
-        .add-member-btn:hover {
-            background: #4f46e5;
-            transform: translateY(-2px);
-        }
-
-        .add-member-btn i {
-            font-size: 18px;
-        }
+         .add-member-btn{ 
+        background:#6366f1; 
+        color:white; 
+        border:none;
+        padding:10px 20px; 
+        border-radius:8px; 
+        cursor:pointer; 
+        font-size:14px; 
+        font-weight:500;
+        display:inline-flex; 
+        align-items:center; 
+        gap:8px; 
+        transition: background 0.2s 
+    }
+    .add-member-btn:hover{ 
+    background:#4f46e5
+     }
+     .add-member-btn i{ 
+    font-size:16px 
+     }
 
         /* Modal Overlay */
         .modal-overlay {
@@ -324,33 +320,11 @@ while ($row = $statsQuery->fetch_assoc()) {
             border: 1px solid #fca5a5;
         }
 
-        .stats-row {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .stat-box {
-            background: white;
-            padding: 15px 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            flex: 1;
-            min-width: 120px;
-        }
-
-        .stat-box h4 {
-            margin: 0 0 5px 0;
-            color: #666;
-            font-size: 13px;
-        }
-
-        .stat-box .number {
-            font-size: 24px;
-            font-weight: bold;
-            color: #6366f1;
-        }
+        .stats-row{ display:flex; gap:15px; margin-bottom:20px; flex-wrap:wrap }
+.stat-box{ background:var(--card-bg); padding:15px 20px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.08); flex:1; min-width:120px; border:1px solid var(--border-color); transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s }
+.stat-box:hover{ transform:translateY(-4px); box-shadow:0 8px 25px rgba(99,102,241,0.25); border-color:var(--primary-color) }
+.stat-box h4{ margin:0 0 5px 0; color:#94a3b8; font-size:13px }
+.stat-box .number{ font-size:24px; font-weight:bold; color:#6366f1 }
 
         .no-members {
             text-align: center;
@@ -380,7 +354,7 @@ while ($row = $statsQuery->fetch_assoc()) {
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="admin.html">
+                    <a href="admin.php">
                         <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -392,21 +366,15 @@ while ($row = $statsQuery->fetch_assoc()) {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#events">
+                    <a href="events.php">
                         <i class="fas fa-calendar-alt"></i>
                         <span>Events</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin_manage_posts.php">
+                    <a href="blog_list.php">
                         <i class="fas fa-newspaper"></i>
                         <span>Blogs</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#syllabus">
-                        <i class="fas fa-book"></i>
-                        <span>Syllabus</span>
                     </a>
                 </li>
             </ul>
@@ -423,9 +391,10 @@ while ($row = $statsQuery->fetch_assoc()) {
             <header class="top-header">
                 <h1 class="page-title">Club Members</h1>
                 <div class="header-actions">
-                    <div class="admin-profile">
-                        <span class="admin-name"><?php echo htmlspecialchars($_SESSION['admin_name']); ?></span>
-                    </div>
+                    <button class="add-member-btn" onclick="openModal()">
+                        <i class="fas fa-user-plus"></i>
+                        Add New Member
+                    </button>
                 </div>
             </header>
 
@@ -441,20 +410,22 @@ while ($row = $statsQuery->fetch_assoc()) {
                         <div class="number"><?php echo $designationCounts['president'] ?? 0; ?></div>
                     </div>
                     <div class="stat-box">
+                        <h4>Vice President</h4>
+                        <div class="number"><?php echo $designationCounts['vice_president'] ?? 0; ?></div>
+                    </div>
+                    <div class="stat-box">
                         <h4>General Secretary</h4>
                         <div class="number"><?php echo $designationCounts['general_secretary'] ?? 0; ?></div>
                     </div>
                     <div class="stat-box">
-                        <h4>Members</h4>
-                        <div class="number"><?php echo $designationCounts['member'] ?? 0; ?></div>
+                        <h4>Treasurer</h4>
+                        <div class="number"><?php echo $designationCounts['treasurer'] ?? 0; ?></div>
+                    </div>
+                    <div class="stat-box">
+                        <h4>Organizer</h4>
+                        <div class="number"><?php echo $designationCounts['organizer'] ?? 0; ?></div>
                     </div>
                 </div>
-
-                <!-- Add Member Button -->
-                <button class="add-member-btn" onclick="openModal()">
-                    <i class="fas fa-user-plus"></i>
-                    Add New Member
-                </button>
 
                 <!-- Members Grid -->
                 <div class="members-grid">
@@ -650,6 +621,10 @@ while ($row = $statsQuery->fetch_assoc()) {
                 }
             });
         }
+        // Auto-open modal if action=add
+        <?php if (isset($_GET['action']) && $_GET['action'] === 'add'): ?>
+        window.addEventListener('DOMContentLoaded', function() { openModal(); });
+        <?php endif; ?>
     </script>
 </body>
 </html>

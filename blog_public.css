@@ -9,15 +9,14 @@
 .read-more{display:inline-block;padding:8px 14px;background:var(--primary-color);color:var(--text-primary);border-radius:8px;text-decoration:none}
 .read-more:hover{background:var(--primary-dark)}
 
-.post-view.container{padding:30px 16px;max-width:800px;margin:20px auto}
-.post-full{background:var(--card-bg);padding:28px;border-radius:10px;border:1px solid var(--border-color)}
-.post-full .post-content{color:var(--text-primary);line-height:1.8;font-size:16px}
+.post-view.container{padding:0 16px;max-width:800px;margin:0 auto}
+.post-full{background:var(--card-bg);padding:28px;border-radius:10px;border:1px solid var(--border-color)}.post-full .post-content{color:var(--text-primary);line-height:1.8;font-size:16px;overflow-wrap:break-word;word-break:break-word;white-space:pre-wrap}
 
 .no-posts{text-align:center;padding:60px 20px;color:var(--text-secondary)}
 .no-posts h3{color:var(--text-secondary);margin-bottom:8px}
 
 /* Admin blog page theme overrides */
-.admin-badge.Site{background:#6366f1;color:#fff}
+.admin-badge{background:#6366f1;color:#fff}
 
 @media (max-width:640px){
     .post-full{padding:18px}

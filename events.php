@@ -26,13 +26,12 @@ $totalEvents = count($events);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Events - BIT2BYTE</title>
     <link rel="stylesheet" href="admin.css">
-    <link rel="stylesheet" href="event.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Member Cards Grid (reused for events) */
         .members-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
             margin-top: 20px;
         }
@@ -44,6 +43,8 @@ $totalEvents = count($events);
             box-shadow: 0 10px 24px rgba(10, 61, 98, 0.08);
             transition: transform 0.2s, box-shadow 0.2s;
             position: relative;
+            border: 1px solid var(--border-color);
+           
         }
 
         .member-card:hover {
@@ -55,7 +56,7 @@ $totalEvents = count($events);
             width: 100%;
             height: 280px;
             overflow: hidden;
-            background: #f0f0f0;
+            background: var(--bg-tertiary);
         }
 
         .member-image img {
@@ -86,20 +87,20 @@ $totalEvents = count($events);
 
         .member-content h3 {
             font-size: 16px;
-            color: #0a3d62;
+            color: #22384e;
             margin-bottom: 6px;
             font-weight: bold;
         }
 
         .member-info {
             font-size: 14px;
-            color: #666;
+            color: #414953;
             margin-bottom: 6px;
         }
 
         .member-info i {
             width: 18px;
-            color: #999;
+            color: #64748b;
             margin-right: 6px;
         }
 
@@ -108,7 +109,7 @@ $totalEvents = count($events);
             gap: 8px;
             margin-top: 10px;
             padding-top: 10px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid var(--border-color);
         }
 
         .btn-edit {
@@ -144,30 +145,26 @@ $totalEvents = count($events);
         }
 
         /* Add Member Button (reused) */
-        .add-member-btn {
-            background: #6366f1;
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: background 0.2s, transform 0.2s;
-            margin-bottom: 24px;
-        }
-
-        .add-member-btn:hover {
-            background: #4f46e5;
-            transform: translateY(-2px);
-        }
-
-        .add-member-btn i {
-            font-size: 18px;
-        }
+        .add-member-btn{ 
+        background:#6366f1; 
+        color:white; 
+        border:none;
+        padding:10px 20px; 
+        border-radius:8px; 
+        cursor:pointer; 
+        font-size:14px; 
+        font-weight:500;
+        display:inline-flex; 
+        align-items:center; 
+        gap:8px; 
+        transition: background 0.2s 
+    }
+    .add-member-btn:hover{ 
+    background:#4f46e5
+     }
+     .add-member-btn i{ 
+    font-size:16px 
+     }
 
         /* Modal Overlay */
         .modal-overlay {
@@ -187,8 +184,8 @@ $totalEvents = count($events);
             display: flex;
         }
 
-        .modal-content {
-            background: white;
+.modal-content {
+            background: var(--card-bg);
             border-radius: 14px;
             padding: 30px;
             max-width: 500px;
@@ -196,6 +193,7 @@ $totalEvents = count($events);
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
         }
 
         .modal-header {
@@ -207,7 +205,7 @@ $totalEvents = count($events);
 
         .modal-header h2 {
             font-size: 24px;
-            color: #0a3d62;
+            color: #f8fafc;
             margin: 0;
         }
 
@@ -216,13 +214,13 @@ $totalEvents = count($events);
             border: none;
             font-size: 24px;
             cursor: pointer;
-            color: #999;
+            color: #94a3b8;
             padding: 0;
             line-height: 1;
         }
 
         .modal-close:hover {
-            color: #333;
+            color: #f8fafc;
         }
 
         .form-group {
@@ -233,7 +231,7 @@ $totalEvents = count($events);
             display: block;
             margin-bottom: 6px;
             font-weight: 500;
-            color: #333;
+            color: #f8fafc;
         }
 
         .form-group input,
@@ -241,11 +239,13 @@ $totalEvents = count($events);
         .form-group textarea {
             width: 100%;
             padding: 10px 14px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             font-size: 14px;
             box-sizing: border-box;
             font-family: inherit;
+            background: var(--bg-tertiary);
+            color: #f8fafc;
         }
 
         .form-group input:focus,
@@ -253,11 +253,11 @@ $totalEvents = count($events);
         .form-group textarea:focus {
             outline: none;
             border-color: #6366f1;
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
         }
 
         .form-group small {
-            color: #666;
+            color: #94a3b8;
             font-size: 12px;
         }
 
@@ -293,15 +293,15 @@ $totalEvents = count($events);
         }
 
         .message.success {
-            background: #d1fae5;
-            color: #059669;
-            border: 1px solid #6ee7b7;
+            background: #10b98133;
+            color: #34d399;
+            border: 1px solid #10b981;
         }
 
         .message.error {
-            background: #fee2e2;
-            color: #dc2626;
-            border: 1px solid #fca5a5;
+            background: #ef444433;
+            color: #fca5a5;
+            border: 1px solid #ef4444;
         }
 
         .stats-row {
@@ -311,42 +311,27 @@ $totalEvents = count($events);
             flex-wrap: wrap;
         }
 
-        .stat-box {
-            background: white;
-            padding: 15px 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            flex: 1;
-            min-width: 120px;
-        }
-
-        .stat-box h4 {
-            margin: 0 0 5px 0;
-            color: #666;
-            font-size: 13px;
-        }
-
-        .stat-box .number {
-            font-size: 24px;
-            font-weight: bold;
-            color: #6366f1;
-        }
+        .stats-row{ display:flex; gap:15px; margin-bottom:20px; flex-wrap:wrap }
+.stat-box{ background:var(--card-bg); padding:15px 20px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.08); flex:1; min-width:120px; border:1px solid var(--border-color); transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s }
+.stat-box:hover{ transform:translateY(-4px); box-shadow:0 8px 25px rgba(99,102,241,0.25); border-color:var(--primary-color) }
+.stat-box h4{ margin:0 0 5px 0; color:#94a3b8; font-size:13px }
+.stat-box .number{ font-size:24px; font-weight:bold; color:#6366f1 }
 
         .no-members {
             text-align: center;
             padding: 60px 20px;
-            color: #999;
+            color: #94a3b8;
         }
 
         .no-members i {
             font-size: 64px;
             margin-bottom: 16px;
-            color: #ddd;
+            color: #64748b;
         }
 
         .no-members h3 {
             margin-bottom: 8px;
-            color: #666;
+            color: #94a3b8;
         }
     </style>
 </head>
@@ -360,7 +345,7 @@ $totalEvents = count($events);
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="admin.html">
+                    <a href="admin.php">
                         <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -378,15 +363,9 @@ $totalEvents = count($events);
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin_manage_posts.php">
+                    <a href="blog_list.php">
                         <i class="fas fa-newspaper"></i>
                         <span>Blogs</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#syllabus">
-                        <i class="fas fa-book"></i>
-                        <span>Syllabus</span>
                     </a>
                 </li>
             </ul>
@@ -403,9 +382,10 @@ $totalEvents = count($events);
             <header class="top-header">
                 <h1 class="page-title">Club Events</h1>
                 <div class="header-actions">
-                    <div class="admin-profile">
-                        <span class="admin-name"><?php echo htmlspecialchars($_SESSION['admin_name']); ?></span>
-                    </div>
+                    <button class="add-member-btn" onclick="openModal()">
+                        <i class="fas fa-plus"></i>
+                        Add New Event
+                    </button>
                 </div>
             </header>
 
@@ -421,12 +401,6 @@ $totalEvents = count($events);
                         <div class="number">0</div>
                     </div>
                 </div>
-
-                <!-- Add Event Button -->
-                <button class="add-member-btn" onclick="openModal()">
-                    <i class="fas fa-plus"></i>
-                    Add New Event
-                </button>
 
                 <!-- Events Grid -->
                 <div class="members-grid">
@@ -630,6 +604,10 @@ $totalEvents = count($events);
                 }
             });
         }
+        // Auto-open modal if action=add
+        <?php if (isset($_GET['action']) && $_GET['action'] === 'add'): ?>
+        window.addEventListener('DOMContentLoaded', function() { openModal(); });
+        <?php endif; ?>
     </script>
 </body>
 </html>
