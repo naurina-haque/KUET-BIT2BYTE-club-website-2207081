@@ -1,6 +1,7 @@
 function handleLogin() {
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
+    const remember = document.getElementById('remember').checked;
     
     if (!email || !password) {
         alert('Please enter both email and password.');
@@ -18,16 +19,16 @@ function handleLogin() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: email, password: password })
+        body: JSON.stringify({ email: email, password: password, remember: remember })
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
             msg.textContent = data.message;
             msg.style.color = '#28a745';
-            setTimeout(() => {
-                window.location.href = data.redirect || 'admin.html';
-            }, 1500);
+setTimeout(() => {
+                 window.location.href = data.redirect || 'admin.php';
+             }, 1500);
         } else {
             msg.textContent = data.message;
             msg.style.color = '#dc3545';

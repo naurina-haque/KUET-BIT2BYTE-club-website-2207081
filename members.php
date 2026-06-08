@@ -2,9 +2,39 @@
 session_start();
 require_once 'db.php';
 
+// Check for remember me cookie if session not set
+if (!isset($_SESSION['admin_logged_in']) && isset($_COOKIE['remember_admin'])) {
+    $cookie_data = base64_decode($_COOKIE['remember_admin']);
+    $parts = explode(':', $cookie_data);
+    if (count($parts) === 2) {
+        $admin_id = $parts[0];
+        $password_hash = $parts[1];
+        
+        $stmt = $conn->prepare("SELECT id, email, password, name FROM admin WHERE id = ?");
+        $stmt->bind_param("i", $admin_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if ($result->num_rows > 0) {
+            $admin = $result->fetch_assoc();
+            if (hash('sha256', $admin['password']) === $password_hash) {
+                $_SESSION['admin_id'] = $admin['id'];
+                $_SESSION['admin_email'] = $admin['email'];
+                $_SESSION['admin_name'] = $admin['name'];
+                $_SESSION['admin_logged_in'] = true;
+            } else {
+                setcookie('remember_admin', '', time() - 3600, '/');
+            }
+        } else {
+            setcookie('remember_admin', '', time() - 3600, '/');
+        }
+        $stmt->close();
+    }
+}
+
 // Check if admin is logged in
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    header('Location: login.html');
+    header('Location: login.php');
     exit;
 }
 
@@ -45,6 +75,7 @@ while ($row = $statsQuery->fetch_assoc()) {
         .member-card {
             background: white;
             border-radius: 14px;
+            border: 1px solid #9db6c2;
             overflow: hidden;
             box-shadow: 0 10px 24px rgba(10, 61, 98, 0.08);
             transition: transform 0.2s, box-shadow 0.2s;

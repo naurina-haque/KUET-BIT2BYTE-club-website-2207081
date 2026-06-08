@@ -33,7 +33,7 @@ if ($result) {
                 <li><a href="blogs_list.php">Blog</a></li>
                 <li><a href="faq.php">FAQ</a></li>
             </ul>
-            <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+            <button class="login-btn" onclick="window.location.href='login.php'">Login</button>
         </nav>
 
         <main class="content-wrap">
@@ -128,7 +128,7 @@ if ($result) {
                                 <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DD8fI0PGNpq8i%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="OOP icon" />
                             </div>
                             <h3>Object-Oriented Programming (OOP)</h3>
-                            <p>A programming paradigm that organizes code using objects and classes for better structure.</p>
+                            <p>A programming paradigm that organizes code using objects and classes.</p>
                         </article>
 
                         <article class="topic-card">
@@ -136,7 +136,7 @@ if ($result) {
                                 <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DAJ0yU3DEYW2j%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="DSA icon" />
                             </div>
                             <h3>Data Structures & Algorithms (DSA)</h3>
-                            <p>The core of problem-solving in programming, essential for efficient data handling.</p>
+                            <p>The core of problem-solving in programming, essential data handling.</p>
                         </article>
 
                         <article class="topic-card">
@@ -156,34 +156,34 @@ if ($result) {
                     <div class="topics-grid topics-grid-4">
                         <article class="topic-card">
                             <div class="topic-icon">
-                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D40670%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="C Programming icon" />
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D20906%26format%3Dpng%26color%3D6b7280&w=32&q=75" />
                             </div>
-                            <h3>C Programming</h3>
-                            <p>Foundation of modern programming, known for efficiency and control over hardware.</p>
+                            <h3>Git & GitHub</h3>
+                            <p>Essential version control tools for collaboration and code management..</p>
                         </article>
 
                         <article class="topic-card">
                             <div class="topic-icon">
-                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DFRRACRKRsw2s%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Java icon" />
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D6S1Y1c6uojWA%26format%3Dpng%26color%3D6b7280&w=32&q=75"  />
                             </div>
-                            <h3>Java</h3>
-                            <p>A versatile language widely used in web, mobile, and enterprise applications.</p>
+                            <h3>Design Patterns</h3>
+                            <p>Reusable solutions to common problems in software design, improving code maintainability.</p>
                         </article>
 
                         <article class="topic-card">
                             <div class="topic-icon">
-                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DD8fI0PGNpq8i%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="OOP icon" />
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DTG3wNqGOHaIJ%26format%3Dpng%26color%3D6b7280&w=32&q=75" />
                             </div>
-                            <h3>Object-Oriented Programming (OOP)</h3>
-                            <p>A programming paradigm that organizes code using objects and classes for better structure.</p>
+                            <h3>Debugging</h3>
+                            <p>The art and science of identifying and resolving errors in code</p>
                         </article>
 
                         <article class="topic-card">
                             <div class="topic-icon">
-                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DAJ0yU3DEYW2j%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="DSA icon" />
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D11400%26format%3Dpng%26color%3D6b7280&w=32&q=75" />
                             </div>
-                            <h3>Data Structures & Algorithms (DSA)</h3>
-                            <p>The core of problem-solving in programming, essential for efficient data handling.</p>
+                            <h3>Databases</h3>
+                            <p>Systems for storing, managing, and retrieving data efficientlyent data handling.</p>
                         </article>
                     </div>
                 </div>
@@ -196,26 +196,26 @@ if ($result) {
                     <div class="topics-grid topics-grid-3">
                         <article class="topic-card">
                             <div class="topic-icon">
-                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D3XRl8fSRBNJL%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="HTML5 icon" />
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D35989%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="HTML5 icon" />
                             </div>
-                            <h3>HTML5</h3>
-                            <p>The standard markup language for creating web pages and web applications.</p>
+                            <h3>React Js</h3>
+                            <p>React.js is a JavaScript library for building interactive user interfaces using reusable components.</p>
                         </article>
 
                         <article class="topic-card">
                             <div class="topic-icon">
-                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3Ddsz6kVD9h7%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="CSS3 icon" />
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D66746%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="CSS3 icon" />
                             </div>
-                            <h3>CSS3</h3>
-                            <p>Style sheet language used for describing the presentation of a document written in HTML.</p>
+                            <h3>Next.Js</h3>
+                            <p>Next.js is a React-based framework for building fast, SEO-friendly full-stack web applications with built-in routing and server-side rendering.</p>
                         </article>
 
                         <article class="topic-card">
                             <div class="topic-icon">
-                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DPXTY4q2Sq2lG%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="JavaScript icon" />
+                                <img src=data:image/png;base64,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 alt="JavaScript icon" />
                             </div>
-                            <h3>JavaScript</h3>
-                            <p>The language of the web, enabling interactive and dynamic user experiences.</p>
+                            <h3>Node.Js</h3>
+                            <p>Node.js is a JavaScript runtime environment that allows developers to run JavaScript on the server side to build fast and scalable backend applications.</p>
                         </article>
                     </div>
                 </div>
@@ -228,18 +228,18 @@ if ($result) {
                     <div class="topics-grid topics-grid-2">
                         <article class="topic-card">
                             <div class="topic-icon">
-                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DFRRACRKRsw2s%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Android icon" />
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D17836%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Android icon" />
                             </div>
                             <h3>Android Development</h3>
-                            <p>Build native mobile applications for the world's most popular mobile platform.</p>
+                            <p>Building mobile applications for the Android platform using Java and Kotlin.</p>
                         </article>
 
                         <article class="topic-card">
                             <div class="topic-icon">
-                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DPXTY4q2Sq2lG%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="React Native icon" />
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D7I3BjCqe9rjG%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Flutter icon" />
                             </div>
-                            <h3>Cross-Platform Development</h3>
-                            <p>Create mobile apps that work on both iOS and Android with a single codebase.</p>
+                            <h3>Flutter</h3>
+                            <p>A cross-platform toolkit for creating natively compiled applications for mobile, web, and desktop</p>
                         </article>
                     </div>
                 </div>
@@ -252,18 +252,18 @@ if ($result) {
                     <div class="topics-grid topics-grid-2">
                         <article class="topic-card">
                             <div class="topic-icon">
-                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DFRRACRKRsw2s%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Node.js icon" />
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3DUG5EO81XNkPs%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Node.js icon" />
                             </div>
-                            <h3>Node.js & Express</h3>
-                            <p>Build scalable server-side applications using JavaScript runtime environment.</p>
+                            <h3>Laravel</h3>
+                            <p>A PHP framework for building modern web applications with clean, elegant syntax</p>
                         </article>
 
                         <article class="topic-card">
                             <div class="topic-icon">
-                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D40670%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Database icon" />
+                                <img src="https://www.bit2bytekuet.com/_next/image?url=https%3A%2F%2Fimg.icons8.com%2F%3Fsize%3D100%26id%3D90519%26format%3Dpng%26color%3D6b7280&w=32&q=75" alt="Database icon" />
                             </div>
-                            <h3>Database Management</h3>
-                            <p>Design and manage databases for efficient data storage and retrieval.</p>
+                            <h3>Spring Boot</h3>
+                            <p>A Java framework for building robust and scalable backend applications.</p>
                         </article>
                     </div>
                 </div>

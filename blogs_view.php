@@ -42,7 +42,7 @@ $stmt->close();
       <li><a href="blogs_list.php" class="active" aria-current="page">Blog</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
-    <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+    <button class="login-btn" onclick="window.location.href='login.php'">Login</button>
   </nav>
 
         <main class="content-wrap">

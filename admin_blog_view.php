@@ -2,6 +2,32 @@
 session_start();
 include 'db.php';
 
+// Check for remember me cookie if session not set
+if (!isset($_SESSION['admin_logged_in']) && isset($_COOKIE['remember_admin'])) {
+    $cookie_data = base64_decode($_COOKIE['remember_admin']);
+    $parts = explode(':', $cookie_data);
+    if (count($parts) === 2) {
+        $admin_id = $parts[0];
+        $password_hash = $parts[1];
+        
+        $stmt = $conn->prepare("SELECT id, email, password, name FROM admin WHERE id = ?");
+        $stmt->bind_param("i", $admin_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if ($result->num_rows > 0) {
+            $admin = $result->fetch_assoc();
+            if (hash('sha256', $admin['password']) === $password_hash) {
+                $_SESSION['admin_id'] = $admin['id'];
+                $_SESSION['admin_email'] = $admin['email'];
+                $_SESSION['admin_name'] = $admin['name'];
+                $_SESSION['admin_logged_in'] = true;
+            }
+        }
+        $stmt->close();
+    }
+}
+
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 if ($id <= 0) {
     http_response_code(404);
@@ -49,7 +75,7 @@ $stmt->close();
                 <?php if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true): ?>
                     <a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
                 <?php else: ?>
-                    <a href="login.html" class="logout-btn"><i class="fas fa-sign-in-alt"></i><span>Admin Login</span></a>
+                    <a href="login.php" class="logout-btn"><i class="fas fa-sign-in-alt"></i><span>Admin Login</span></a>
                 <?php endif; ?>
             </div>
         </nav>

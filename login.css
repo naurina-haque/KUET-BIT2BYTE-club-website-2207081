@@ -113,6 +113,63 @@ body {
 
 .forgot a:hover { text-decoration: underline; }
 
+/* ── Remember Me ── */
+.remember-me {
+    margin-bottom: 10px;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #13457e;
+    cursor: pointer;
+    user-select: none;
+    font-family: sans-serif;
+    position: relative;
+}
+
+.checkbox-wrapper input {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.checkbox-wrapper input:checked ~ .checkmark {
+    background: #0a3d62;
+    border-color: #0a3d62;
+}
+
+.checkmark::after {
+    content: '';
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.checkbox-wrapper input:checked ~ .checkmark::after {
+    opacity: 1;
+}
+
+.checkbox-wrapper:hover .checkmark {
+    border-color: #0a3d62;
+}
+
 /* ── Submit Button ── */
 .modal-submit {
     width: 100%;

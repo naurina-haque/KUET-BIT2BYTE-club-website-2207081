@@ -31,7 +31,7 @@ if ($result) {
       <li><a href="blogs_list.php">Blog</a></li>
       <li><a href="faq.php">FAQ</a></li>
     </ul>
-    <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+    <button class="login-btn" onclick="window.location.href='login.php'">Login</button>
   </nav>
 
   <main class="events-section">

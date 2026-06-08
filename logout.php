@@ -8,9 +8,14 @@ if (isset($_COOKIE[session_name()])) {
     setcookie(session_name(), '', time() - 3600, '/');
 }
 
+// Clear remember me cookie
+if (isset($_COOKIE['remember_admin'])) {
+    setcookie('remember_admin', '', time() - 3600, '/');
+}
+
 session_destroy();
 
 // Redirect to login page
-header('Location: login.html');
+header('Location: login.php');
 exit;
 ?>

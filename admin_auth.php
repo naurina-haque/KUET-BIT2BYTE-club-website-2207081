@@ -49,11 +49,45 @@ function isAdminLoggedIn() {
 }
 
 /**
+ * Check remember me cookie and restore session if needed
+ * Should be called before isAdminLoggedIn check
+ */
+function checkRememberMe() {
+    global $conn;
+    if (!isset($_SESSION['admin_logged_in']) && isset($_COOKIE['remember_admin'])) {
+        $cookie_data = base64_decode($_COOKIE['remember_admin']);
+        $parts = explode(':', $cookie_data);
+        if (count($parts) === 2) {
+            $admin_id = $parts[0];
+            $password_hash = $parts[1];
+            
+            $stmt = $conn->prepare("SELECT id, email, password, name FROM admin WHERE id = ?");
+            $stmt->bind_param("i", $admin_id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            if ($result->num_rows > 0) {
+                $admin = $result->fetch_assoc();
+                if (hash('sha256', $admin['password']) === $password_hash) {
+                    $_SESSION['admin_id'] = $admin['id'];
+                    $_SESSION['admin_email'] = $admin['email'];
+                    $_SESSION['admin_name'] = $admin['name'];
+                    $_SESSION['admin_logged_in'] = true;
+                } else {
+                    setcookie('remember_admin', '', time() - 3600, '/');
+                }
+            }
+            $stmt->close();
+        }
+    }
+}
+
+/**
  * Require admin authentication
  */
 function requireAdminAuth() {
     if (!isAdminLoggedIn()) {
-        header('Location: login.html');
+        header('Location: login.php');
         exit();
     }
 }
@@ -65,6 +99,9 @@ function adminLogout() {
     $_SESSION = array();
     if (isset($_COOKIE[session_name()])) {
         setcookie(session_name(), '', time() - 3600, '/');
+    }
+    if (isset($_COOKIE['remember_admin'])) {
+        setcookie('remember_admin', '', time() - 3600, '/');
     }
     session_destroy();
 }

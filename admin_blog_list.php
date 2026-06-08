@@ -2,6 +2,32 @@
 session_start();
 include 'db.php';
 
+// Check for remember me cookie if session not set
+if (!isset($_SESSION['admin_logged_in']) && isset($_COOKIE['remember_admin'])) {
+    $cookie_data = base64_decode($_COOKIE['remember_admin']);
+    $parts = explode(':', $cookie_data);
+    if (count($parts) === 2) {
+        $admin_id = $parts[0];
+        $password_hash = $parts[1];
+        
+        $stmt = $conn->prepare("SELECT id, email, password, name FROM admin WHERE id = ?");
+        $stmt->bind_param("i", $admin_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if ($result->num_rows > 0) {
+            $admin = $result->fetch_assoc();
+            if (hash('sha256', $admin['password']) === $password_hash) {
+                $_SESSION['admin_id'] = $admin['id'];
+                $_SESSION['admin_email'] = $admin['email'];
+                $_SESSION['admin_name'] = $admin['name'];
+                $_SESSION['admin_logged_in'] = true;
+            }
+        }
+        $stmt->close();
+    }
+}
+
 $isAdmin = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true;
 
 // AJAX handlers
@@ -88,7 +114,7 @@ if ($res) {
                 <?php if ($isAdmin): ?>
                     <a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
                 <?php else: ?>
-                    <a href="login.html" class="logout-btn"><i class="fas fa-sign-in-alt"></i><span>Admin Login</span></a>
+                    <a href="login.php" class="logout-btn"><i class="fas fa-sign-in-alt"></i><span>Admin Login</span></a>
                 <?php endif; ?>
             </div>
         </nav>
@@ -151,9 +177,13 @@ if ($res) {
 <script>
         let isEdit=false;
         function openModal(){isEdit=false;document.getElementById('modalTitle').textContent='Add Post';document.getElementById('submitBtn').innerHTML='<i class="fas fa-plus"></i> Create';document.getElementById('postForm').reset();document.getElementById('postId').value='';document.getElementById('formMessage').style.display='none';document.getElementById('postModal').classList.add('active');}
+
         function closeModal(){document.getElementById('postModal').classList.remove('active');document.getElementById('postForm').reset();document.getElementById('formMessage').style.display='none';isEdit=false}
+
         document.getElementById('postModal').addEventListener('click',e=>{if(e.target===document.getElementById('postModal'))closeModal();});
+
         function editPost(id,title,content){isEdit=true;document.getElementById('modalTitle').textContent='Edit Post';document.getElementById('submitBtn').innerHTML='<i class="fas fa-save"></i> Save';document.getElementById('postId').value=id;document.getElementById('postTitle').value=title;document.getElementById('postContent').value=content;document.getElementById('formMessage').style.display='none';document.getElementById('postModal').classList.add('active');}
+        
         // Auto-open modal if ?action=add
         <?php if ($isAdmin && isset($_GET['action']) && $_GET['action'] === 'add'): ?>
         window.addEventListener('DOMContentLoaded', function() { openModal(); });
@@ -169,8 +199,8 @@ if ($res) {
                 deletePost(card.dataset.id);
             }
         });
-        document.getElementById('postForm').addEventListener('submit',function(e){e.preventDefault();const fd=new FormData(this);fd.append('action',isEdit?'update':'create');const msg=document.getElementById('formMessage');msg.style.display='block';msg.className='message';msg.textContent=isEdit?'Saving...':'Creating...';fetch('blog_list.php',{method:'POST',body:fd}).then(r=>r.json()).then(data=>{msg.className='message '+(data.success?'success':'error');msg.textContent=data.message;if(data.success) setTimeout(()=>location.reload(),700);}).catch(err=>{msg.className='message error';msg.textContent='Error: '+err});});
-        function deletePost(id){if(!confirm('Delete this post?'))return;const fd=new FormData();fd.append('action','delete');fd.append('id',id);fetch('blog_list.php',{method:'POST',body:fd}).then(r=>r.json()).then(d=>{if(d.success) location.reload(); else alert(d.message);});}
+        document.getElementById('postForm').addEventListener('submit',function(e){e.preventDefault();const fd=new FormData(this);fd.append('action',isEdit?'update':'create');const msg=document.getElementById('formMessage');msg.style.display='block';msg.className='message';msg.textContent=isEdit?'Saving...':'Creating...';fetch('admin_blog_list.php',{method:'POST',body:fd}).then(r=>r.json()).then(data=>{msg.className='message '+(data.success?'success':'error');msg.textContent=data.message;if(data.success) setTimeout(()=>location.reload(),700);}).catch(err=>{msg.className='message error';msg.textContent='Error: '+err});});
+        function deletePost(id){if(!confirm('Delete this post?'))return;const fd=new FormData();fd.append('action','delete');fd.append('id',id);fetch('admin_blog_list.php',{method:'POST',body:fd}).then(r=>r.json()).then(d=>{if(d.success) location.reload(); else alert(d.message);});}
     </script>
     <?php endif; ?>
 </body>

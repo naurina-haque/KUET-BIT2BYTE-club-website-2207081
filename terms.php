@@ -20,7 +20,7 @@
             <li><a href="blogs_list.php">Blog</a></li>
             <li><a href="terms.php" class="active" aria-current="page">Terms</a></li>
         </ul>
-        <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+        <button class="login-btn" onclick="window.location.href='login.php'">Login</button>
     </nav>
 
     <header class="faq-hero">
