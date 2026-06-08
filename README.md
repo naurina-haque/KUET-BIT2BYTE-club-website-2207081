@@ -37,35 +37,51 @@ Built as part of a Web Programming Lab project.
 
 ```
 /
-├── home.html                # Public home page
-├── event.html               # Public events page
-├── about.html               # About page
-├── login.html / login.php   # Admin login
-├── admin.html               # Admin dashboard
-├── admin_auth.php           # Session auth check
-├── logout.php               # Logout handler
+├── home.html                   # Home page
+├── about.php                   # About page
+├── event.php                   # Events page
+├── blogs_list.php              # Public blog list
+├── blogs_view.php              # Public blog details
+├── faq.php                     # FAQ page
+├── terms.php                   # Terms & Conditions page
 │
-├── members.php              # Fetch members (API)
-├── add_member.php           # Add new member
-├── update_member.php        # Edit member
-├── delete_member.php        # Delete member
+├── login.php                   # Admin login
+├── logout.php                  # Logout
+├── admin.php                   # Admin dashboard
+├── admin_auth.php              # Session authentication
 │
-├── events.php               # Fetch events (API)
-├── add_event.php            # Add new event
-├── update_event.php         # Edit event
-├── delete_event.php         # Delete event
+├── members.php                 # Display members
+├── add_member.php              # Add member
+├── update_member.php           # Update member
+├── delete_member.php           # Delete member
 │
-├── blog_list.php            # Public blog listing
-├── blog_view.php            # Single blog post view
-├── admin_create_post.php    # Create blog post (admin)
-├── admin_manage_posts.php   # Manage blog posts (admin)
+├── add_event.php               # Add event
+├── update_event.php            # Update event
+├── delete_event.php            # Delete event
+├── admin_events.php            # Manage events
 │
-├── db.php                   # Database connection
-├── database.sql             # SQL schema & seed data
+├── admin_blog_list.php         # Manage blog posts
+├── admin_blog_view.php         # View blog post
+├── admin_create_post.php       # Create blog post
 │
-├── style.css / components.css / admin.css / ...
-├── img/                     # Static images
-└── uploads/                 # User-uploaded files
+├── db.php                      # Database connection
+├── database.sql                # Database schema
+│
+├── style.css                   # Main stylesheet
+├── about.css
+├── admin.css
+├── admin_blog.css
+├── admin_blog_public.css
+├── blogs_public.css
+├── event.css
+├── faq.css
+├── login.css
+│
+├── about.js
+├── faq.js
+├── login.js
+│
+└── README.md
 ```
 
 ---
