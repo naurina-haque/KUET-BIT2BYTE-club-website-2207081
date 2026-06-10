@@ -141,8 +141,8 @@ $faqs = [
                 <h4>About Us</h4>
                 <ul>
                     <li><a href="about.php">About</a></li>
-                    <li><a href="#">Syllabus</a></li>
-                    <li><a href="blog_list.php">Blogs</a></li>
+                    <li><a href="event.php">Events</a></li>
+                    <li><a href="blogs_list.php">Blogs</a></li>
                 </ul>
             </div>
             <div class="footer-col">

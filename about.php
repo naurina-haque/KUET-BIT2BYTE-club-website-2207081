@@ -283,9 +283,9 @@ if ($result) {
                 <div class="footer-col">
                     <h4>About Us</h4>
                     <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Syllabus</a></li>
-                        <li><a href="#">Blogs</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="events.php">Event</a></li>
+                        <li><a href="blogs_list.php">Blogs</a></li>
                     </ul>
                 </div>
 

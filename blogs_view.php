@@ -40,7 +40,7 @@ $stmt->close();
       <li><a href="about.php">About</a></li>
       <li><a href="event.php">Event</a></li>
       <li><a href="blogs_list.php" class="active" aria-current="page">Blog</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="faq.php">FAQ</a></li>
     </ul>
     <button class="login-btn" onclick="window.location.href='login.php'">Login</button>
   </nav>

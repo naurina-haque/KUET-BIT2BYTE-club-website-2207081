@@ -18,7 +18,7 @@
             <li><a href="about.php">About</a></li>
             <li><a href="event.php">Event</a></li>
             <li><a href="blogs_list.php">Blog</a></li>
-            <li><a href="terms.php" class="active" aria-current="page">Terms</a></li>
+            <li><a href="faq.php">FAQ</a></li>
         </ul>
         <button class="login-btn" onclick="window.location.href='login.php'">Login</button>
     </nav>
@@ -78,8 +78,8 @@
                 <h4>About Us</h4>
                 <ul>
                     <li><a href="about.php">About</a></li>
-                    <li><a href="#">Syllabus</a></li>
-                    <li><a href="blogs.php">Blog</a></li>
+                    <li><a href="event.php">Events</a></li>
+                    <li><a href="blogs_list.php">Blogs</a></li>
                 </ul>
             </div>
             <div class="footer-col">
